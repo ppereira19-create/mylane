@@ -1,8 +1,16 @@
+/* ---------- Tailwind base ---------- */
 @import "tailwindcss";
 
+/* ---------- Cores base ---------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #f5f5f5;
+
+  /* PALETA MYLANE – alinhada ao dourado do logo */
+  --mylane-gold: #F4C96A;         /* dourado principal */
+  --mylane-gold-hover: #E1AE45;   /* hover */
+  --mylane-gold-border: #E0B354;  /* borda ligeiramente mais escura */
+  --mylane-gold-soft: rgba(244, 201, 106, 0.18);
 }
 
 @theme inline {
@@ -14,8 +22,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #000000;
+    --foreground: #f5f5f5;
   }
 }
 
@@ -23,4 +31,388 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ---------- Animações ---------- */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1.5s ease-out forwards;
+}
+
+/* ---------- Autocomplete / Google ---------- */
+
+.pac-container {
+  z-index: 99999 !important;
+}
+
+.autocomplete-list {
+  background: #111;
+  border: 1px solid #333;
+  margin-top: 4px;
+  border-radius: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  width: 100%;
+  z-index: 99999;
+}
+
+.autocomplete-item {
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+}
+
+.autocomplete-item:hover {
+  background: #222;
+}
+
+/* =======================================================
+   MYLANE THEME
+   ======================================================= */
+
+/* Texto dourado genérico */
+.text-mylane-gold {
+  color: var(--mylane-gold);
+}
+
+/* Borda dourada genérica */
+.border-mylane-gold {
+  border-color: var(--mylane-gold-border);
+}
+
+/* Fundo dourado genérico */
+.bg-mylane-gold {
+  background-color: var(--mylane-gold);
+  color: #111111;
+}
+
+/* ---------- BOTÕES ---------- */
+
+/* Botão principal (ex: "Criar conta", "Calcular viagem") */
+.btn-mylane-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--mylane-gold-border);
+  background-color: var(--mylane-gold);
+  color: #111111;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(244, 201, 106, 0.18);
+  transition:
+    background-color 0.15s ease-out,
+    box-shadow 0.15s ease-out,
+    transform 0.12s ease-out;
+}
+
+.btn-mylane-primary:hover {
+  background-color: var(--mylane-gold-hover);
+  box-shadow: 0 12px 30px rgba(244, 201, 106, 0.28);
+  transform: translateY(-1px);
+}
+
+/* Botão outline (ex: "Login") */
+.btn-mylane-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--mylane-gold-border);
+  background-color: transparent;
+  color: var(--mylane-gold);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition:
+    background-color 0.15s ease-out,
+    color 0.15s ease-out,
+    box-shadow 0.15s ease-out,
+    transform 0.12s ease-out;
+}
+
+.btn-mylane-outline:hover {
+  background-color: #151515;
+  color: var(--mylane-gold-hover);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+  transform: translateY(-1px);
+}
+
+/* Botão “fantasma” pequeno (se precisares) */
+.btn-mylane-ghost {
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #f5f5f5;
+  font-size: 0.8rem;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  transition: background-color 0.15s ease-out, border-color 0.15s;
+}
+
+.btn-mylane-ghost:hover {
+  background-color: rgba(20, 20, 20, 0.95);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- CARTÕES / BOXES ---------- */
+
+.card-mylane {
+  background: radial-gradient(circle at top, #181818 0, #050505 60%);
+  border-radius: 18px;
+  border: 1px solid rgba(224, 179, 84, 0.22);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+/* ---------- INPUTS ---------- */
+
+.input-mylane {
+  width: 100%;
+  background-color: #050505;
+  border-radius: 10px;
+  border: 1px solid rgba(224, 179, 84, 0.15);
+  padding: 0.7rem 0.9rem;
+  font-size: 0.9rem;
+  color: #f5f5f5;
+  outline: none;
+  transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out,
+    background-color 0.15s ease-out;
+}
+
+.input-mylane::placeholder {
+  color: #666666;
+}
+
+.input-mylane:focus {
+  border-color: var(--mylane-gold-border);
+  box-shadow: 0 0 0 1px rgba(244, 201, 106, 0.45);
+  background-color: #070707;
+}
+
+/* =======================================================
+   CHIPS / TAGS — BOTÕES DE SELEÇÃO MYLANE
+   ======================================================= */
+
+@layer components {
+  .chip-mylane {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;               /* ocupa sempre a coluna da grid */
+    border-radius: 999px;
+
+    padding: 0.35rem 0.9rem;   /* mais fino e controlado */
+
+    border: 1px solid rgba(224, 179, 84, 0.35);
+    background-color: rgba(8, 8, 8, 0.95);
+    color: #f5f5f5;
+
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    white-space: normal;       /* deixa quebrar linha se for preciso */
+    text-wrap: balance;        /* browsers que suportam ficam ainda mais bonitos */
+
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.85);
+
+    transition:
+      background-color 0.15s ease-out,
+      color 0.15s ease-out,
+      border-color 0.15s ease-out,
+      box-shadow 0.15s ease-out,
+      transform 0.12s ease-out;
+  }
+
+  /* hover só dá um toque leve nos que não estão activos */
+  .chip-mylane:hover:not(.chip-mylane--active) {
+    border-color: var(--mylane-gold-border);
+    background-color: rgba(15, 15, 15, 0.98);
+  }
+
+  /* estado activo – dourado mais subtil, sem exagero de brilho */
+  .chip-mylane--active {
+    background-color: var(--mylane-gold);
+    color: #111111;
+    border-color: var(--mylane-gold-border);
+    box-shadow: 0 10px 24px var(--mylane-gold-soft);
+    transform: translateY(-1px);
+  }
+}
+
+/* ---------- BOLINHA DO UTILIZADOR ---------- */
+
+.user-pill {
+  position: fixed;
+  top: 1.4rem;
+  right: 1.4rem;
+  z-index: 40;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.3rem 0.85rem 0.3rem 0.35rem;
+  border-radius: 999px;
+
+  background: rgba(7, 7, 7, 0.92);
+  border: 1px solid rgba(224, 179, 84, 0.55);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.9);
+
+  color: #f5f5f5;
+  font-size: 0.8rem;
+}
+
+.user-pill__circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 2px solid var(--mylane-gold-border);
+  background: radial-gradient(
+    circle at 30% 0,
+    var(--mylane-gold) 0,
+    #d8a93a 65%,
+    #44310c 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.user-pill__name {
+  max-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-pill button {
+  font-size: 0.7rem;
+  color: #b3b3b3;
+}
+
+.user-pill button:hover {
+  color: var(--mylane-gold-hover);
+}
+
+/* === Focus ring dourado MyLane (inputs / selects) === */
+
+.input-gold:focus {
+  border-color: var(--mylane-gold) !important;
+  box-shadow: 0 0 0 2px rgba(244, 201, 106, 0.35) !important;
+  outline: none;
+}
+
+/* === Slider dourado MyLane (AC) === */
+
+.ac-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    rgba(244, 201, 106, 0.25),
+    rgba(244, 201, 106, 0.9)
+  );
+  outline: none;
+}
+
+.ac-slider::-webkit-slider-runnable-track {
+  height: 5px;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.ac-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background-color: var(--mylane-gold);
+  border: 2px solid #111111;
+  box-shadow: 0 0 0 4px rgba(244, 201, 106, 0.35);
+  margin-top: -6.5px;
+}
+
+.ac-slider::-moz-range-track {
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    rgba(244, 201, 106, 0.25),
+    rgba(244, 201, 106, 0.9)
+  );
+}
+
+.ac-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background-color: var(--mylane-gold);
+  border: 2px solid #111111;
+  box-shadow: 0 0 0 4px rgba(244, 201, 106, 0.35);
+}
+
+/* =======================================================
+   OVERRIDES DAS CLASSES TAILWIND ANTIGAS
+   ======================================================= */
+
+/* Botões / fundos que usam bg-[#CCA768] */
+.bg-\[\#CCA768\] {
+  background-color: var(--mylane-gold) !important;
+  color: #111111;
+}
+
+/* Hover antigo hover:bg-[#B48C4E] */
+.hover\:bg-\[\#B48C4E\]:hover {
+  background-color: var(--mylane-gold-hover) !important;
+}
+
+/* Texto dourado padrão Tailwind */
+.text-yellow-400 {
+  color: var(--mylane-gold) !important;
+}
+
+/* Bordas douradas padrão Tailwind */
+.border-yellow-400 {
+  border-color: var(--mylane-gold-border) !important;
+}
+
+/* Versões /30 e /40 */
+.border-yellow-400\/30 {
+  border-color: rgb(244 201 106 / 0.3) !important;
+}
+.border-yellow-400\/40 {
+  border-color: rgb(244 201 106 / 0.4) !important;
+}
+
+/* Texto com opacidade */
+.text-yellow-400\/60 {
+  color: rgb(244 201 106 / 0.6) !important;
+}
+.text-yellow-400\/40 {
+  color: rgb(244 201 106 / 0.4) !important;
 }
