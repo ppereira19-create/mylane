@@ -303,11 +303,11 @@ export default function ReservarPage() {
       {/* Hero Mustang */}
       <div className="relative w-full h-[420px] md:h-[520px] overflow-hidden">
         <img
-          src="/mustang.png"
+          src="/mustang1.png"
           alt="MyLane Mustang"
-          className="object-cover w-full h-full scale-110 md:scale-100 object-center md:object-[center_40%]"
+          className="object-cover w-full h-full scale-110 md:scale-100 object-center md:object-[center_50%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/30 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/30 to-black/25" />
         <div className="absolute bottom-10 left-0 right-0 text-center px-4">
           <h1 className="text-2xl md:text-3xl font-bold tracking-[0.18em] drop-shadow-lg text-mylane-gold">
             RESERVAR VIAGEM
